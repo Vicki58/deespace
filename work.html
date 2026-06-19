@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work — Deespace</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="deespace-shared.css" />
+<style>
+  /* ── FEATURED PROJECT ── */
+  #featured {
+    position: relative; z-index: 1;
+    padding: 0 8% 100px;
+  }
+  .featured-card {
+    background: linear-gradient(135deg, rgba(62,146,204,0.08), rgba(127,119,221,0.06));
+    border: 1px solid rgba(62,146,204,0.2);
+    border-radius: 28px;
+    padding: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px; align-items: center;
+  }
+  .featured-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(62,146,204,0.15);
+    border: 1px solid rgba(62,146,204,0.3);
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 11px; color: var(--blue-light);
+    margin-bottom: 20px;
+  }
+  .featured-card h2 {
+    font-family: var(--display);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700; color: #fff;
+    margin-bottom: 14px; line-height: 1.2;
+  }
+  .featured-card p { font-size: 15px; color: var(--text-soft); line-height: 1.75; margin-bottom: 24px; }
+  .featured-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+  .featured-tag {
+    font-size: 12px; padding: 6px 14px; border-radius: 999px;
+    background: rgba(255,255,255,0.08); color: var(--text-soft);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .featured-visual {
+    background: var(--navy);
+    border-radius: 18px;
+    height: 320px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative; overflow: hidden;
+  }
+  .featured-visual-browser {
+    position: absolute; top: 16px; left: 16px; right: 16px;
+    height: 24px; background: rgba(255,255,255,0.05);
+    border-radius: 8px; display: flex; align-items: center; gap: 6px;
+    padding: 0 10px;
+  }
+  .browser-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+  .featured-visual-content { text-align: center; }
+  .featured-visual-content .placeholder-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.6; }
+  .featured-visual-content p { font-size: 13px; color: var(--text-muted); }
+
+  /* ── GRID PROJECTS ── */
+  #projects-grid {
+    position: relative; z-index: 1;
+    background: var(--off-white);
+    color: #111;
+    padding: 100px 8%;
+  }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px; margin-top: 56px;
+  }
+  .work-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 22px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .work-card.coming-soon { opacity: 0.7; }
+  .work-card:not(.coming-soon):hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.1); }
+  .work-thumb {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .work-thumb-icon { font-size: 32px; color: rgba(255,255,255,0.85); }
+  .soon-pill {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 999px; padding: 4px 12px;
+    font-size: 11px; font-weight: 600; color: #555;
+  }
+  .work-info { padding: 24px 26px; }
+  .work-cat { font-size: 11px; color: var(--blue); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .work-info h3 { font-family: var(--display); font-size: 18px; font-weight: 600; color: #0a0f2e; margin-bottom: 8px; }
+  .work-info p { font-size: 13.5px; color: #666; line-height: 1.6; }
+
+  .wc-1 .work-thumb { background: var(--navy); }
+  .wc-2 .work-thumb { background: var(--green); }
+  .wc-3 .work-thumb { background: var(--purple); }
+  .wc-4 .work-thumb { background: var(--blue); }
+
+  /* ── CTA STRIP ── */
+  #cta-strip {
+    position: relative; z-index: 1;
+    background: var(--navy-mid);
+    padding: 56px 8%;
+    text-align: center;
+  }
+  #cta-strip p { font-size: 15px; color: var(--text-soft); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+  #cta-strip strong { color: #fff; }
+
+  @media (max-width: 900px) {
+    .featured-card { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<nav>
+  <a href="index.html" class="nav-logo">DEESPACE<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-eyebrow">Our work</div>
+  <h1>Real projects.<br><em>Real results.</em></h1>
+  <p class="page-hero-sub">We're early in our journey — and proud of it. Every project we take on gets the same precision and care, whether it's our first or our hundredth.</p>
+</section>
+
+<section id="featured">
+  <div class="featured-card reveal">
+    <div>
+      <div class="featured-badge">★ Featured project</div>
+      <h2>Our first client partnership</h2>
+      <p>We partnered with our first client to deliver a complete digital presence — from brand identity through to a fully functional website. This project set the foundation for how Deespace works: precise, collaborative, and built to grow with the business.</p>
+      <div class="featured-tags">
+        <span class="featured-tag">Web Design</span>
+        <span class="featured-tag">Branding</span>
+        <span class="featured-tag">Development</span>
+      </div>
+      <a href="contact.html" class="btn-primary">Start your project →</a>
+    </div>
+    <div class="featured-visual">
+      <div class="featured-visual-browser">
+        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+      </div>
+      <div class="featured-visual-content">
+        <div class="placeholder-icon">🖥️</div>
+        <p>Case study coming soon</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects-grid">
+  <div class="section-eyebrow">Growing portfolio</div>
+  <h2 class="section-title" style="color:#0a0f2e">More projects on the way</h2>
+  <p class="section-sub" style="color:#555;max-width:480px">As we take on new clients, this page will grow into a full showcase of Deespace's work across every service.</p>
+
+  <div class="work-grid">
+    <div class="work-card wc-1 reveal reveal-delay-1">
+      <div class="work-thumb"><div class="work-thumb-icon">🌐</div></div>
+      <div class="work-info">
+        <div class="work-cat">Web Design</div>
+        <h3>Client website & brand</h3>
+        <p>A complete website build paired with a fresh brand identity for our first partner.</p>
+      </div>
+    </div>
+
+    <div class="work-card wc-2 coming-soon reveal reveal-delay-2">
+      <div class="work-thumb"><div class="soon-pill">Coming soon</div><div class="work-thumb-icon">📈</div></div>
+      <div class="work-info">
+        <div class="work-cat">Digital Marketing</div>
+        <h3>Your project here?</h3>
+        <p>This slot is open. Let's build a marketing campaign worth showcasing.</p>
+      </div>
+    </div>
+
+    <div class="work-card wc-3 coming-soon reveal reveal-delay-3">
+      <div class="work-thumb"><div class="soon-pill">Coming soon</div><div class="work-thumb-icon">🤖</div></div>
+      <div class="work-info">
+        <div class="work-cat">AI & Tech</div>
+        <h3>Your project here?</h3>
+        <p>This slot is open. Let's build an AI-powered tool worth showcasing.</p>
+      </div>
+    </div>
+
+    <div class="work-card wc-4 coming-soon reveal reveal-delay-4">
+      <div class="work-thumb"><div class="soon-pill">Coming soon</div><div class="work-thumb-icon">🎨</div></div>
+      <div class="work-info">
+        <div class="work-cat">Design & Branding</div>
+        <h3>Your project here?</h3>
+        <p>This slot is open. Let's build a brand identity worth showcasing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta-strip">
+  <p reveal><strong>Want to be our next featured project?</strong> We're actively taking on new clients and would love to bring the same care to your business.</p>
+</section>
+
+<section class="cta-band">
+  <div class="cta-badge">Be part of our story</div>
+  <h2>Let's create your<br><span style="color:var(--blue)">success story.</span></h2>
+  <p>Every great portfolio starts with one client saying yes.</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn-primary">Start a project →</a>
+    <a href="services.html" class="btn-ghost">View our services</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">DEESPACE<span>.</span></div>
+  <div class="footer-copy">© 2025 Deespace. Making Invisible Brands Visible.</div>
+  <div class="footer-links">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="deespace-shared.js"></script>
+</body>
+</html>
+

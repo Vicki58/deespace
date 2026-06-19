@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Deespace</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="deespace-shared.css" />
+<style>
+  #contact-main {
+    position: relative; z-index: 1;
+    padding: 0 8% 100px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+  }
+
+  /* LEFT — info */
+  .contact-info h2 {
+    font-family: var(--display);
+    font-size: 28px; font-weight: 700;
+    margin-bottom: 16px; letter-spacing: -0.5px;
+  }
+  .contact-info > p { font-size: 15px; color: var(--text-soft); line-height: 1.75; margin-bottom: 36px; }
+
+  .contact-method {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .contact-method:last-of-type { border-bottom: none; }
+  .cm-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: var(--blue-glow);
+    border: 1px solid rgba(62,146,204,0.25);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue); flex-shrink: 0;
+  }
+  .cm-text h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .cm-text a, .cm-text span { font-size: 13.5px; color: var(--text-muted); text-decoration: none; }
+  .cm-text a:hover { color: var(--blue-light); }
+
+  .social-row { display: flex; gap: 10px; margin-top: 32px; }
+  .social-icon-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--border-dark);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-icon-btn:hover { border-color: var(--blue); color: var(--blue-light); }
+
+  /* RIGHT — form */
+  .contact-form-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-dark);
+    border-radius: 24px;
+    padding: 40px;
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 12.5px; font-weight: 500;
+    color: var(--text-soft); margin-bottom: 8px;
+  }
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 13px 16px;
+    font-size: 14px; color: #fff;
+    font-family: var(--body);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--blue); background: rgba(62,146,204,0.07);
+  }
+  .form-textarea { resize: vertical; min-height: 110px; }
+  .service-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .service-chip {
+    padding: 9px 16px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    font-size: 12.5px; color: var(--text-soft);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .service-chip.selected { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .submit-btn { width: 100%; justify-content: center; margin-top: 8px; }
+
+  .form-success {
+    display: none; text-align: center; padding: 40px 0;
+  }
+  .form-success .check-circle {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(29,158,117,0.15);
+    border: 1px solid rgba(29,158,117,0.4);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; color: var(--green);
+  }
+  .form-success h3 { font-size: 18px; margin-bottom: 8px; }
+  .form-success p { font-size: 13.5px; color: var(--text-muted); }
+
+  /* ── FAQ ── */
+  #faq {
+    position: relative; z-index: 1;
+    background: var(--off-white);
+    color: #111;
+    padding: 100px 8%;
+  }
+  .faq-list { max-width: 720px; margin-top: 48px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border-light);
+    padding: 22px 0;
+    cursor: pointer;
+  }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 15.5px; font-weight: 600; color: #0a0f2e; }
+  .faq-icon { transition: transform 0.25s; color: var(--blue); flex-shrink: 0; margin-left: 16px; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { font-size: 14px; color: #666; line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, margin-top 0.3s ease; margin-top: 0; }
+  .faq-item.open .faq-a { max-height: 200px; margin-top: 14px; }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row-2 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<nav>
+  <a href="index.html" class="nav-logo">DEESPACE<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="contact.html" class="nav-cta active">Start a project</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero" style="padding-bottom: 40px;">
+  <div class="page-eyebrow">Get in touch</div>
+  <h1>Let's make your<br><em>brand visible.</em></h1>
+  <p class="page-hero-sub">Tell us about your project and we'll get back to you within 24 hours.</p>
+</section>
+
+<section id="contact-main">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h2>Contact information</h2>
+      <p>Whether you have a clear brief or just an idea, we're happy to talk it through. Reach out directly or fill in the form.</p>
+
+      <div class="contact-method">
+        <div class="cm-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="cm-text">
+          <h4>Email</h4>
+          <a href="mailto:info@deespace.co">info@deespace.co</a>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="cm-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="cm-text">
+          <h4>Location</h4>
+          <span>Nairobi, Kenya</span>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="cm-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="cm-text">
+          <h4>Response time</h4>
+          <span>Within 24 hours</span>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a href="#" class="social-icon-btn" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        <a href="#" class="social-icon-btn" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="social-icon-btn" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+      </div>
+    </div>
+
+    <div class="contact-form-card reveal reveal-delay-2">
+      <form id="contactForm">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Full name</label>
+            <input class="form-input" type="text" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input class="form-input" type="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Company / Organisation</label>
+          <input class="form-input" type="text" placeholder="Optional" />
+        </div>
+        <div class="form-group">
+          <label>What do you need?</label>
+          <div class="service-chips">
+            <div class="chip-option service-chip" data-value="website">Website</div>
+            <div class="chip-option service-chip" data-value="branding">Branding</div>
+            <div class="chip-option service-chip" data-value="marketing">Marketing</div>
+            <div class="chip-option service-chip" data-value="ai">AI / Tech</div>
+            <div class="chip-option service-chip" data-value="full">Full package</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tell us about your project</label>
+          <textarea class="form-textarea" placeholder="Share your goals, timeline, and any details that help us understand your vision..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary submit-btn">Send message
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="check-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Message sent</h3>
+        <p>Thanks for reaching out — we'll be in touch within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-eyebrow">Common questions</div>
+  <h2 class="section-title" style="color:#0a0f2e">Frequently asked questions</h2>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <div class="faq-q">How long does a typical project take?<div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">It depends on scope — a simple website typically takes 2–4 weeks, while full branding and web projects can take 4–8 weeks. We'll give you a clear timeline after our first conversation.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Do you work with businesses outside Kenya?<div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">Yes. While we're based in Nairobi and focused on Africa's growth, we work with clients anywhere — everything is delivered remotely with clear communication.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Can you handle a project that needs multiple services?<div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">Absolutely — that's exactly what Deespace was built for. Our team covers web development, design, marketing, and AI/tech under one roof, so multi-service projects are handled by one cohesive team.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">What if I'm not sure what I need yet?<div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">That's completely fine. Reach out anyway — our discovery process is designed to help you clarify your goals before we recommend a solution.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">DEESPACE<span>.</span></div>
+  <div class="footer-copy">© 2025 Deespace. Making Invisible Brands Visible.</div>
+  <div class="footer-links">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="deespace-shared.js"></script>
+<script>
+  // Service chip selection
+  document.querySelectorAll('.service-chip').forEach(chip => {
+    chip.addEventListener('click', () => chip.classList.toggle('selected'));
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Form submit (demo only)
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+</body>
+</html>
+
