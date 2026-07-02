@@ -1,4 +1,4 @@
-﻿const reveals = document.querySelectorAll('.reveal');
+const reveals = document.querySelectorAll('.reveal');
 
 if (reveals.length) {
   if ('IntersectionObserver' in window) {
@@ -19,6 +19,6 @@ if (reveals.length) {
 const nav = document.querySelector('nav');
 if (nav) {
   window.addEventListener('scroll', () => {
-    nav.style.background = window.scrollY > 60 ? 'rgba(7,20,61,0.95)' : 'rgba(7,20,61,0.7)';
+    nav.style.background = window.scrollY > 60 ? 'rgba(30,30,30,0.95)' : 'rgba(30,30,30,0.7)';
   });
 }

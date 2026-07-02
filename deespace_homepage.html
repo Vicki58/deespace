@@ -9,20 +9,31 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy: #07143d;
-    --navy-mid: #0d1f5c;
-    --navy-light: #112070;
-    --blue: #3E92CC;
-    --blue-light: #6eb0de;
-    --blue-glow: rgba(62,146,204,0.15);
-    --green: #1D9E75;
-    --purple: #7F77DD;
-    --white: #ffffff;
-    --off-white: #f5f7fa;
-    --text-muted: rgba(255,255,255,0.55);
-    --text-soft: rgba(255,255,255,0.75);
-    --border-dark: rgba(255,255,255,0.08);
-    --border-light: rgba(0,0,0,0.07);
+    /* Brand color definitions */
+    --charcoal: #1E1E1E;
+    --charcoal-mid: #252525;
+    --charcoal-light: #2D2D2D;
+    --orange: #FF7900;
+    --orange-light: #FF9433;
+    --orange-glow: rgba(255, 121, 0, 0.15);
+    --cream: #FFFBEB;
+    --cream-soft: #FFFDF5;
+
+    /* Color system mapping */
+    --navy: var(--charcoal);
+    --navy-mid: var(--charcoal-mid);
+    --navy-light: var(--charcoal-light);
+    --blue: var(--orange);
+    --blue-light: var(--orange-light);
+    --blue-glow: var(--orange-glow);
+    --green: #E06C00;
+    --purple: #E68A00;
+    --white: var(--cream);
+    --off-white: var(--cream-soft);
+    --text-muted: rgba(255, 251, 235, 0.55);
+    --text-soft: rgba(255, 251, 235, 0.75);
+    --border-dark: rgba(255, 251, 235, 0.08);
+    --border-light: rgba(30, 30, 30, 0.1);
     --display: 'Space Grotesk', sans-serif;
     --body: 'Inter', sans-serif;
   }
@@ -52,19 +63,20 @@
     padding: 0 5%;
     display: flex; align-items: center; justify-content: space-between;
     height: 68px;
-    background: rgba(7,20,61,0.7);
+    background: rgba(30, 30, 30, 0.7);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-dark);
     transition: background 0.3s;
   }
   .nav-logo {
-    font-family: var(--display);
-    font-size: 22px; font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--white);
+    display: block;
     text-decoration: none;
   }
-  .nav-logo span { color: var(--blue); }
+  .logo-img {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
   .nav-links {
     display: flex; align-items: center; gap: 36px;
     list-style: none;
@@ -236,7 +248,7 @@
     position: relative; z-index: 1;
     background: var(--off-white);
     padding: 100px 8%;
-    color: #111;
+    color: var(--charcoal);
   }
   .section-eyebrow {
     font-size: 11px; font-weight: 600;
@@ -250,7 +262,7 @@
     font-size: clamp(28px, 4vw, 46px);
     font-weight: 700;
     letter-spacing: -1px;
-    color: #0a0f2e;
+    color: var(--charcoal);
     line-height: 1.1;
     margin-bottom: 12px;
   }
@@ -296,7 +308,7 @@
   .service-name {
     font-family: var(--display);
     font-size: 17px; font-weight: 600;
-    color: #0a0f2e; margin-bottom: 10px;
+    color: var(--charcoal); margin-bottom: 10px;
   }
   .service-desc { font-size: 14px; color: #666; line-height: 1.65; margin-bottom: 20px; }
   .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -367,7 +379,7 @@
     position: relative; z-index: 1;
     background: var(--off-white);
     padding: 100px 8%;
-    color: #111;
+    color: var(--charcoal);
   }
   .team-grid {
     display: grid;
@@ -392,13 +404,13 @@
     font-size: 18px; font-weight: 700;
     margin-bottom: 16px;
   }
-  .team-card:nth-child(1) .avatar { background: #e6f1fb; color: #185FA5; }
-  .team-card:nth-child(2) .avatar { background: #e1f5ee; color: #0F6E56; }
-  .team-card:nth-child(3) .avatar { background: #eeedfe; color: #3C3489; }
+  .team-card:nth-child(1) .avatar { background: #fff2e6; color: var(--orange); }
+  .team-card:nth-child(2) .avatar { background: #fffbeb; color: #d49a00; }
+  .team-card:nth-child(3) .avatar { background: #f5f5f5; color: var(--charcoal); }
   .team-name {
     font-family: var(--display);
     font-size: 17px; font-weight: 600;
-    color: #0a0f2e; margin-bottom: 3px;
+    color: var(--charcoal); margin-bottom: 3px;
   }
   .team-role {
     font-size: 12px; color: var(--blue);
@@ -472,11 +484,11 @@
     flex-wrap: wrap; gap: 16px;
   }
   .footer-logo {
-    font-family: var(--display);
-    font-size: 16px; font-weight: 700;
-    letter-spacing: 2px; color: var(--white);
+    display: block;
   }
-  .footer-logo span { color: var(--blue); }
+  .footer-logo-img {
+    height: 24px;
+  }
   .footer-copy { font-size: 12px; color: var(--text-muted); }
   .footer-links { display: flex; gap: 24px; }
   .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
@@ -511,12 +523,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">DEESPACE<span>.</span></a>
+  <a href="#" class="nav-logo"><img src="logo.png" alt="Deespace" class="logo-img"></a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#why">About</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#cta" class="nav-cta">Start a project</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="contact.html" class="nav-cta">Start a project</a></li>
   </ul>
 </nav>
 
@@ -761,7 +773,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">DEESPACE<span>.</span></div>
+  <div class="footer-logo"><img src="logo.png" alt="Deespace" class="logo-img footer-logo-img"></div>
   <div class="footer-copy">© 2025 Deespace. Making Invisible Brands Visible.</div>
   <div class="footer-links">
     <a href="#services">Services</a>
@@ -845,7 +857,7 @@ reveals.forEach(el => observer.observe(el));
 // Nav scroll style
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
-  nav.style.background = window.scrollY > 60 ? 'rgba(7,20,61,0.95)' : 'rgba(7,20,61,0.7)';
+  nav.style.background = window.scrollY > 60 ? 'rgba(30,30,30,0.95)' : 'rgba(30,30,30,0.7)';
 });
 </script>
 </body>

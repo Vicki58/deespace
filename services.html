@@ -11,7 +11,7 @@
   #services-detail {
     position: relative; z-index: 1;
     background: var(--off-white);
-    color: #111;
+    color: var(--charcoal);
     padding: 80px 8% 40px;
   }
   .service-block {
@@ -36,7 +36,7 @@
     font-family: var(--display);
     font-size: clamp(24px, 3.5vw, 36px);
     font-weight: 700;
-    color: #0a0f2e;
+    color: var(--charcoal);
     letter-spacing: -0.5px;
     margin-bottom: 16px;
     line-height: 1.15;
@@ -85,25 +85,25 @@
     color: #333; font-weight: 500;
   }
 
-  .sb-1 .service-visual { background: linear-gradient(135deg, #eef0fa, #e2e6f8); }
+  .sb-1 .service-visual { background: linear-gradient(135deg, #f5f5f5, #eaeaea); }
   .sb-1 .service-visual::before { background: var(--navy); }
   .sb-1 .visual-icon { background: var(--navy); color: #fff; }
-  .sb-1 .check-icon { background: #eef0fa; color: var(--navy); }
+  .sb-1 .check-icon { background: #f5f5f5; color: var(--navy); }
 
-  .sb-2 .service-visual { background: linear-gradient(135deg, #e6f1fb, #d6ebfa); }
+  .sb-2 .service-visual { background: linear-gradient(135deg, #fff2e6, #ffe5cc); }
   .sb-2 .service-visual::before { background: var(--blue); }
   .sb-2 .visual-icon { background: var(--blue); color: #fff; }
-  .sb-2 .check-icon { background: #e6f1fb; color: var(--blue); }
+  .sb-2 .check-icon { background: #fff2e6; color: var(--blue); }
 
-  .sb-3 .service-visual { background: linear-gradient(135deg, #e1f5ee, #d2f0e3); }
+  .sb-3 .service-visual { background: linear-gradient(135deg, #fff9e6, #fff3cd); }
   .sb-3 .service-visual::before { background: var(--green); }
   .sb-3 .visual-icon { background: var(--green); color: #fff; }
-  .sb-3 .check-icon { background: #e1f5ee; color: var(--green); }
+  .sb-3 .check-icon { background: #fff9e6; color: var(--green); }
 
-  .sb-4 .service-visual { background: linear-gradient(135deg, #eeedfe, #e3e1fc); }
+  .sb-4 .service-visual { background: linear-gradient(135deg, #fffbeb, #faf4d3); }
   .sb-4 .service-visual::before { background: var(--purple); }
   .sb-4 .visual-icon { background: var(--purple); color: #fff; }
-  .sb-4 .check-icon { background: #eeedfe; color: var(--purple); }
+  .sb-4 .check-icon { background: #fffbeb; color: var(--purple); }
 
   /* ── PROCESS ── */
   #process {
@@ -150,7 +150,7 @@
 <canvas id="canvas"></canvas>
 
 <nav>
-  <a href="index.html" class="nav-logo">DEESPACE<span>.</span></a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Deespace" class="logo-img"></a>
   <ul class="nav-links">
     <li><a href="services.html" class="active">Services</a></li>
     <li><a href="about.html">About</a></li>
@@ -311,7 +311,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo">DEESPACE<span>.</span></div>
+  <div class="footer-logo"><img src="logo.png" alt="Deespace" class="logo-img footer-logo-img"></div>
   <div class="footer-copy">© 2025 Deespace. Making Invisible Brands Visible.</div>
   <div class="footer-links">
     <a href="services.html">Services</a>

@@ -23,7 +23,7 @@
   #mv {
     position: relative; z-index: 1;
     background: var(--off-white);
-    color: #111;
+    color: var(--charcoal);
     padding: 100px 8%;
   }
   .mv-grid {
@@ -41,12 +41,12 @@
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 24px; font-size: 20px;
   }
-  .mv-card:nth-child(1) .mv-icon { background: #e6f1fb; color: var(--blue); }
-  .mv-card:nth-child(2) .mv-icon { background: #eeedfe; color: var(--purple); }
+  .mv-card:nth-child(1) .mv-icon { background: #fff2e6; color: var(--blue); }
+  .mv-card:nth-child(2) .mv-icon { background: #fffbeb; color: var(--purple); }
   .mv-card h3 {
     font-family: var(--display);
     font-size: 22px; font-weight: 700;
-    color: #0a0f2e; margin-bottom: 14px;
+    color: var(--charcoal); margin-bottom: 14px;
   }
   .mv-card p { font-size: 15px; color: #555; line-height: 1.75; }
 
@@ -99,7 +99,7 @@
   #team-full {
     position: relative; z-index: 1;
     background: var(--off-white);
-    color: #111;
+    color: var(--charcoal);
     padding: 100px 8%;
   }
   .team-grid-full {
@@ -125,10 +125,10 @@
     font-family: var(--display); font-size: 20px; font-weight: 700;
     margin-bottom: 18px;
   }
-  .team-card-full:nth-child(1) .avatar-lg { background: #eef0fa; color: var(--navy); }
-  .team-card-full:nth-child(2) .avatar-lg { background: #e6f1fb; color: var(--blue); }
-  .team-card-full:nth-child(3) .avatar-lg { background: #eeedfe; color: var(--purple); }
-  .team-card-full h3 { font-family: var(--display); font-size: 19px; font-weight: 600; color: #0a0f2e; margin-bottom: 4px; }
+  .team-card-full:nth-child(1) .avatar-lg { background: #f5f5f5; color: var(--navy); }
+  .team-card-full:nth-child(2) .avatar-lg { background: #fff2e6; color: var(--blue); }
+  .team-card-full:nth-child(3) .avatar-lg { background: #fffbeb; color: var(--purple); }
+  .team-card-full h3 { font-family: var(--display); font-size: 19px; font-weight: 600; color: var(--charcoal); margin-bottom: 4px; }
   .team-role-tag { font-size: 12px; color: var(--blue); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
   .team-body p { font-size: 14px; color: #666; line-height: 1.7; }
 
@@ -146,7 +146,7 @@
 <canvas id="canvas"></canvas>
 
 <nav>
-  <a href="index.html" class="nav-logo">DEESPACE<span>.</span></a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Deespace" class="logo-img"></a>
   <ul class="nav-links">
     <li><a href="services.html">Services</a></li>
     <li><a href="about.html" class="active">About</a></li>
@@ -170,7 +170,7 @@
 
 <section id="mv">
   <div class="section-eyebrow">Where we're going</div>
-  <h2 class="section-title" style="color:#0a0f2e">Vision & mission</h2>
+  <h2 class="section-title" style="color:var(--charcoal)">Vision & mission</h2>
   <div class="mv-grid">
     <div class="mv-card reveal reveal-delay-1">
       <div class="mv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
@@ -236,7 +236,7 @@
 
 <section id="team-full">
   <div class="section-eyebrow">Meet the team</div>
-  <h2 class="section-title" style="color:#0a0f2e">The people behind Deespace</h2>
+  <h2 class="section-title" style="color:var(--charcoal)">The people behind Deespace</h2>
   <div class="team-grid-full">
     <div class="team-card-full reveal reveal-delay-1">
       <div class="team-banner"></div>
@@ -279,7 +279,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo">DEESPACE<span>.</span></div>
+  <div class="footer-logo"><img src="logo.png" alt="Deespace" class="logo-img footer-logo-img"></div>
   <div class="footer-copy">© 2025 Deespace. Making Invisible Brands Visible.</div>
   <div class="footer-links">
     <a href="services.html">Services</a>

@@ -89,18 +89,17 @@
     font-size: 12.5px; color: var(--text-soft);
     cursor: pointer; transition: all 0.2s;
   }
-  .service-chip.selected { background: var(--blue); border-color: var(--blue); color: #fff; }
-  .submit-btn { width: 100%; justify-content: center; margin-top: 8px; }
+  .service-chip.selected { background: var(--orange); border-color: var(--orange); color: #fff; }
+  .submit-btn { width: 100%; justify-content: center; margin-top: 8px; background: var(--orange); }
 
   .form-success {
     display: none; text-align: center; padding: 40px 0;
   }
   .form-success .check-circle {
     width: 56px; height: 56px; border-radius: 50%;
-    background: rgba(29,158,117,0.15);
-    border: 1px solid rgba(29,158,117,0.4);
+    background: rgba(255, 121, 0, 0.15);
     display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 20px; color: var(--green);
+    margin: 0 auto 20px; color: var(--orange);
   }
   .form-success h3 { font-size: 18px; margin-bottom: 8px; }
   .form-success p { font-size: 13.5px; color: var(--text-muted); }
@@ -109,8 +108,8 @@
   #faq {
     position: relative; z-index: 1;
     background: var(--off-white);
-    color: #111;
     padding: 100px 8%;
+    color: var(--charcoal);
   }
   .faq-list { max-width: 720px; margin-top: 48px; }
   .faq-item {
@@ -118,7 +117,7 @@
     padding: 22px 0;
     cursor: pointer;
   }
-  .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 15.5px; font-weight: 600; color: #0a0f2e; }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 15.5px; font-weight: 600; color: var(--charcoal); }
   .faq-icon { transition: transform 0.25s; color: var(--blue); flex-shrink: 0; margin-left: 16px; }
   .faq-item.open .faq-icon { transform: rotate(45deg); }
   .faq-a { font-size: 14px; color: #666; line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, margin-top 0.3s ease; margin-top: 0; }
@@ -135,7 +134,7 @@
 <canvas id="canvas"></canvas>
 
 <nav>
-  <a href="index.html" class="nav-logo">DEESPACE<span>.</span></a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Deespace" class="logo-img"></a>
   <ul class="nav-links">
     <li><a href="services.html">Services</a></li>
     <li><a href="about.html">About</a></li>
@@ -230,7 +229,7 @@
 
 <section id="faq">
   <div class="section-eyebrow">Common questions</div>
-  <h2 class="section-title" style="color:#0a0f2e">Frequently asked questions</h2>
+  <h2 class="section-title" style="color:var(--charcoal)">Frequently asked questions</h2>
   <div class="faq-list">
     <div class="faq-item reveal">
       <div class="faq-q">How long does a typical project take?<div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
@@ -252,7 +251,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo">DEESPACE<span>.</span></div>
+  <div class="footer-logo"><img src="logo.png" alt="Deespace" class="logo-img footer-logo-img"></div>
   <div class="footer-copy">© 2025 Deespace. Making Invisible Brands Visible.</div>
   <div class="footer-links">
     <a href="services.html">Services</a>
